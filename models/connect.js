@@ -38,7 +38,6 @@ const createScooter = (request, response) => {
 	let country = params.country;
 	let name = params.name;
 
-	let query = ('INSERT INTO scooter_info (lat, long, country, name) VALUES ($1, $2, $3, $4) RETURNING id;', [lat, long, country, name]);
 	pool.query('INSERT INTO scooter_info (lat, long, country, name) VALUES ($1, $2, $3, $4) RETURNING id;', [lat, long, country, name], (error, results) => {
 	    if (error) {
 	      throw error
